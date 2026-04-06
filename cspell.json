@@ -1,0 +1,32 @@
+{
+	"version": "0.2",
+	"language": "en",
+	"words": [
+		"appsdb",
+		"Caddyfile",
+		"Csvg",
+		"dashbaord",
+		"Dela",
+		"firebaseapp",
+		"firebasestorage",
+		"mongosh",
+		"nextjs",
+		"rfid",
+		"rfidtags",
+		"rtdb",
+		"Vios"
+	],
+	"ignorePaths": [
+		"./node_modules",
+		"./dist",
+		"./databases",
+		"*.config.js",
+		"*.config.ts",
+		"*.config.cjs",
+		"./package.json",
+		"./pnpm-lock.yaml",
+		"./docker-compose.yaml",
+		"./prisma/schema.prisma",
+		"./.cursor"
+	]
+}
