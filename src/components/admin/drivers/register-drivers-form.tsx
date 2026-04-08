@@ -6,6 +6,15 @@ import {
   DialogContent,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { useRegisterNewDriver } from '@/hooks/drivers/use-register-new-driver.hooks';
 import { useRfidTags } from '@/hooks/rfid-tags/use-rfid-tags.hooks';
 import { Input } from '@base-ui/react';
@@ -26,6 +35,8 @@ export default function RegisterDriversForm() {
     isLoading,
     selectedRfid,
     setSelectedRfid,
+    selectedStatus,
+    setSelectedStatus
   } = useRegisterNewDriver();
 
   const set =
@@ -42,7 +53,7 @@ export default function RegisterDriversForm() {
           className="gap-2 bg-green-600 py-2 hover:bg-green-700"
         />
       </DialogTrigger>
-      <DialogContent className="min-w-xl border-0 bg-none p-0">
+      <DialogContent className="min-w-xl bg-none p-0 pb-0">
         <form onSubmit={handleSubmit}>
           <Card className="border-gray-200 shadow-sm">
             <div className="mb-4 px-6 pt-2">
@@ -104,6 +115,23 @@ export default function RegisterDriversForm() {
                   required
                   className="rounded-lg px-3 py-2 focus-visible:ring-1 focus-visible:ring-green-500"
                 />
+              </div>
+              <div className="flex flex-col gap-1.5" >
+                <Label className="text-xs font-bold tracking-wider text-gray-600 uppercase">
+                  👤 Status
+                </Label>
+                <Select value={selectedStatus} onValueChange={setSelectedStatus}>
+                  <SelectTrigger className="w-full max-w-48">
+                    <SelectValue placeholder="Select Status" />
+                  </SelectTrigger>
+                  <SelectContent >
+                    <SelectGroup>
+                      <SelectLabel>Select Status</SelectLabel>
+                      <SelectItem value="Student">Student</SelectItem>
+                      <SelectItem value="Faculty">Faculty</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="col-span-2 flex max-h-46 flex-col gap-2 rounded-lg border-2 border-green-200 bg-green-50 p-4">

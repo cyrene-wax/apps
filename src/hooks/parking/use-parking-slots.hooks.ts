@@ -55,6 +55,7 @@ export function useParkingSlots() {
                   rfidTag: slotRfidTag,
                   vehicleModel: driver?.vehicleModel,
                   contactNumber: driver?.contactNumber,
+                  driverStatus: driver?.status,
                   time: value.time,
                   occupancy: value.isScanned === 'occupied' ? 1 : 0,
                 });

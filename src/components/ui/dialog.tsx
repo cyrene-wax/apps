@@ -3,7 +3,6 @@
 import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
 import * as React from 'react';
 
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 function Dialog({ ...props }: DialogPrimitive.Root.Props) {
@@ -41,7 +40,6 @@ function DialogOverlay({
 function DialogContent({
   className,
   children,
-  showCloseButton = true,
   ...props
 }: DialogPrimitive.Popup.Props & {
   showCloseButton?: boolean;
@@ -58,9 +56,7 @@ function DialogContent({
         {...props}
       >
         {children}
-        {showCloseButton && (
-          <DialogPrimitive.Close data-slot="dialog-close"></DialogPrimitive.Close>
-        )}
+        
       </DialogPrimitive.Popup>
     </DialogPortal>
   );
@@ -78,7 +74,6 @@ function DialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
 
 function DialogFooter({
   className,
-  showCloseButton = false,
   children,
   ...props
 }: React.ComponentProps<'div'> & {
@@ -94,11 +89,7 @@ function DialogFooter({
       {...props}
     >
       {children}
-      {showCloseButton && (
-        <DialogPrimitive.Close render={<Button variant="outline" />}>
-          Close
-        </DialogPrimitive.Close>
-      )}
+  
     </div>
   );
 }

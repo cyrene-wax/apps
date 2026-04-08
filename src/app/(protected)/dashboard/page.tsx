@@ -283,14 +283,18 @@ export default function DashboardPage() {
                       >
                         {log.status === 'occupied' ? '↓' : '↑'}
                       </span>
-
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-bold text-gray-900">
-                          {log.driverName}
-                        </p>
-                        <p className="font-mono text-xs text-gray-400">
-                          {log.plateNumber}
-                        </p>
+                            <p className="truncate text-sm font-bold text-gray-900">
+                              {log.driverName}
+                            </p>
+                            <p className="font-mono text-xs text-gray-400">
+                              {log.plateNumber}
+                            </p>
+                           {log.status === "occupied" && !log.driverStatus ? (
+                             <Badge variant="outline" className="border bg-yellow-200 text-yellow-700 border-yellow-700">
+                              {!log.driverStatus && "Visitor"}
+                            </Badge>
+                           ): null}
                       </div>
 
                       <Badge

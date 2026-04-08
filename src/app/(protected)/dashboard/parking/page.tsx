@@ -371,7 +371,7 @@ export default function ParkingPage() {
           { cls: 'bg-green-400', label: 'Available' },
           { cls: 'bg-red-400', label: 'Occupied' },
           { cls: 'bg-blue-400', label: 'Quadrant 1 - Students' },
-          { cls: 'bg-purple-400', label: 'Quadrant 2 - Staff' },
+          { cls: 'bg-purple-400', label: 'Quadrant 2 - Faculty' },
           { cls: 'bg-yellow-400', label: 'Quadrant 3 - Visitors' },
         ].map(({ cls, label }) => (
           <div
@@ -618,16 +618,25 @@ export default function ParkingPage() {
           {selected && (
             <div className="flex flex-col gap-4 p-2 pt-1">
               <div className="flex w-full items-center gap-3">
+                <div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-2xl">
                   👤
                 </div>
-                <div>
-                  <p className="font-black text-gray-900">
-                    {selected.driverName || 'Visitor'}
-                  </p>
-                  <p className="font-mono text-sm text-gray-500">
-                    {selected.plateNumber}
-                  </p>
+                </div>
+                <div className='flex items-center w-full justify-between'>
+                  <div className='w-full'>
+                    <p className="font-black text-gray-900">
+                      {selected.driverName || 'Visitor'}
+                    </p>
+                    <p className="font-mono text-sm text-gray-500">
+                      {selected.plateNumber}
+                    </p>
+                  </div>
+                  {selected.driverStatus && (
+                      <Badge variant="outline" className={`border ${selected.driverStatus === "Student" ? "border-blue-700 bg-blue-200 text-blue-700" : "border-purple-700 bg-purple-200 text-purple-700"}`}>
+                          {selected.driverStatus}
+                      </Badge>
+                  )}
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-2.5">

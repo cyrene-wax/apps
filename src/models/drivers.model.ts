@@ -28,6 +28,10 @@ const DriversSchema = new mongoose.Schema({
     default: new Date().toISOString(),
     required: true,
   },
+  status: {
+    type: String,
+    required: true,
+  }
 });
 
 export default mongoose.models.Driver ||

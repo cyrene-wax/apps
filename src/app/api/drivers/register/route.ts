@@ -7,7 +7,7 @@ import rfidTags from '@/models/rfid-tags.model';
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
-  const { driverName, plateNumber, rfidTag, contactNumber, vehicleModel } =
+  const { driverName, plateNumber, rfidTag, status, contactNumber, vehicleModel } =
     await req.json();
 
   try {
@@ -53,6 +53,7 @@ export async function POST(req: Request) {
       driverName,
       plateNumber,
       rfidTag,
+      status,
       contactNumber,
       vehicleModel,
       registeredAt: new Date().toISOString(),

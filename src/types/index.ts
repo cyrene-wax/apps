@@ -3,6 +3,7 @@ export interface Driver {
   driverName: string;
   plateNumber: string;
   rfidTag: string | null;
+  status: string | null;
   contactNumber: string;
   vehicleModel: string;
   registeredAt?: string;
@@ -33,6 +34,7 @@ export type ParkingSlot = {
   rfidTag: Driver['rfidTag'];
   vehicleModel: Driver['vehicleModel'];
   contactNumber: Driver['contactNumber'];
+  driverStatus: Driver["status"];
   time: string;
   occupancy: number;
 };

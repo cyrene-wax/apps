@@ -81,9 +81,13 @@ function VerifyState({
   if (driver) {
     return (
       <Card className="w-full max-w-lg border-2 border-green-300 shadow-xl">
+        
         <CardContent className="p-6">
           {/* Badge */}
-          <div className="mb-4 flex justify-end">
+          <div className="mb-4 flex justify-between">
+            <Badge variant="outline" className={`border ${driver.status === "Student" ? "border-blue-700 bg-blue-200 text-blue-700" : "border-purple-700 bg-purple-200 text-purple-700"}`}>
+                {driver.status}
+            </Badge>
             <Badge className="border border-green-300 bg-green-100 font-bold tracking-wide text-green-700">
               <ShieldCheck className="mr-1 h-3.5 w-3.5" /> VERIFIED
             </Badge>

@@ -12,6 +12,7 @@ export function useRegisterNewDriver() {
   const { getAllRfidTags } = useRfidTags();
   const { getAllDrivers } = useDrivers();
   const [isOpen, setIsOpen] = useState(false);
+    const [selectedStatus, setSelectedStatus] = useState<string | null>(null)
 
   const [form, setForm] = useState({
     driverName: '',
@@ -26,18 +27,20 @@ export function useRegisterNewDriver() {
       form.plateNumber.trim() === '' ||
       !selectedRfid ||
       form.vehicleModel.trim() === '' ||
-      form.contactNumber.trim() === ''
+      form.contactNumber.trim() === '' ||
+     !selectedStatus
     ) {
       setDisable(true);
     } else {
       setDisable(false);
     }
-  }, [form, selectedRfid]);
+  }, [form, selectedRfid, selectedStatus]);
 
   const data = {
     driverName: form.driverName,
     plateNumber: form.plateNumber.toUpperCase(),
     rfidTag: selectedRfid,
+    status: selectedStatus,
     contactNumber: form.contactNumber,
     vehicleModel: form.vehicleModel,
   };
@@ -63,6 +66,7 @@ export function useRegisterNewDriver() {
             plateNumber: '',
             contactNumber: '',
             vehicleModel: '',
+            
           });
 
           setTimeout(() => {
@@ -107,5 +111,7 @@ export function useRegisterNewDriver() {
     isLoading,
     selectedRfid,
     setSelectedRfid,
+    selectedStatus,
+    setSelectedStatus
   };
 }

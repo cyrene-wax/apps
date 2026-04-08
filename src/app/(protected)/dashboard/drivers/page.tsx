@@ -188,7 +188,7 @@ export default function AllDriversPage() {
                   >
                     <TableCell>
                       <div className="flex items-center gap-2.5">
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-sm">
+                        <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm ${driver.status === "Student" ? "bg-blue-300" : "bg-purple-300"}`}>
                           👤
                         </div>
                         <div>
