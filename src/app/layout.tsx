@@ -1,5 +1,3 @@
-import { Feature } from '@/components/ui/label';
-import { isFeatureActive } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Toaster } from 'sonner';
@@ -19,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {!isFeatureActive() ? <Feature /> : children}
+        {children}
         <Toaster position="bottom-right" richColors={true} theme="light" />
       </body>
     </html>
